@@ -1,6 +1,6 @@
 from functools import wraps
 
-from clock.utils.main import FlexibleSchedule
+from ClockParts.utils.main import FlexibleSchedule
 
 import datetime
 import asyncio

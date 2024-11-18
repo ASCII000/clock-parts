@@ -26,6 +26,7 @@ Now, let's see how to create a Shaft:
 ```python
 # main.py
 from ClockParts import Shaft
+import asyncio
 
 shaft = Shaft()
 
@@ -45,7 +46,7 @@ Let's move on to your Cogs!
 ```python
 # cogs/my_cogs.py
 
-from clock import Cog
+from ClockParts import Cog
 from datetime import timedelta
 
 

@@ -4,7 +4,7 @@ from pathlib import Path
 root_path = Path(__file__).parents[2]
 sys.path.append(str(root_path))
 
-from clock.shaft import Shaft
+from ClockParts.shaft import Shaft
 
 import asyncio
 
