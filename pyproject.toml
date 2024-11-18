@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "clock"
+version = "0.1.45"
+description = "Dynamic task scheduler"
+authors = ["Emerson Silva"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+colorama = "^0.4.6"
+psutil = "^6.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
