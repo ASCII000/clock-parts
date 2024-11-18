@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "ClockParts"
-version = "0.1.46"
+version = "0.1.51"
 description = "Dynamic task scheduler"
 authors = ["Emerson Silva"]
 readme = "README.md"
+repository = "https://github.com/ASCII000/clock-parts"
+homepage = "https://github.com/ASCII000/clock-parts"
 
 [tool.poetry.dependencies]
 python = "^3.13"

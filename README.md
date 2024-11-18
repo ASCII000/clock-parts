@@ -1,7 +1,7 @@
 # ClockParts
-Hi there!
+Hi There 👋!
 
-I'm the developer of ClockParts. I encountered many problems in multi-threading projects, APIs, microservices, etc. So I created ClockParts to solve these issues. It's simple, compatible with asynchronous operations and threads, and human-readable.
+I'm the developer of ClockParts. I encountered many challenges when working with scheduling tasks in Python, whether in multi-threading projects, APIs, or microservices. So, I created ClockParts to address these issues. It's simple, compatible with asynchronous operations and threads, and human-readable, making scheduling in Python easier and more efficient.
 
 ## Installation
 It's very easy on PyPI:
@@ -56,17 +56,37 @@ class MyCog(Cog):
     @Cog.task(timedelta(seconds=5))
     async def task1(self):
         """
-        Task to be executed after 5 seconds (using timedelta)
+        Task to run every after 5 seconds (using timedelta)
         """
-
         print("Executing task 1")
     
+    @Cog.task("11:00")
+    async def task2(self):
+        """
+        Task to be performed every day at 11:00
+        """
+        print("Executing task 2")
+
     @Cog.task("thu 10:00")
     async def task3(self):
         """
         Task to be executed every Thursday at 10:00
         """
         print("Executing task 3")
+
+    @Cog.task("1m 10:00")
+    async def task4(self):
+        """
+        Task to be executed every month at 10:00
+        """
+        print("Executing task 4")
+    
+    @Cog.task("mon 10:00")
+    async def task5(self):
+        """
+        Task to be executed every Monday at 10:00
+        """
+        print("Executing task 5")
 ```
 Does it look simple? Yes, indeed! In short, you don't need to import ClockParts, just import Cog and use its methods to schedule tasks. There are two ways to schedule your tasks:
 
