@@ -1,0 +1,35 @@
+name: Publish Python Package to PyPI
+
+# Define o evento que irá acionar o fluxo de trabalho
+on:
+  release:
+    types: [created]  # Aciona o workflow quando um novo "release" for criado no GitHub
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest  # O ambiente onde o fluxo de trabalho será executado
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2  # Faz o checkout do código do repositório
+
+      - name: Set up Python
+        uses: actions/setup-python@v2  # Configura o Python no ambiente
+        with:
+          python-version: '3.8'  # Versão do Python que você quer usar
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip  # Atualiza o pip
+          pip install setuptools wheel twine  # Instala as dependências necessárias para o build
+
+      - name: Build package
+        run: |
+          python setup.py sdist bdist_wheel  # Cria o pacote
+
+      - name: Publish package to PyPI
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}  # Seu nome de usuário no PyPI
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}  # Sua chave de acesso no PyPI
+        run: |
+          twine upload dist/*  # Faz o upload do pacote para o PyPI
